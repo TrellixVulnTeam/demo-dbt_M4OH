@@ -5,7 +5,7 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref('wards_ab2') }}
+-- depends_on: {{ ref('districts_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
         '_id',
@@ -14,17 +14,14 @@ select
         'slug',
         'cityid',
         adapter.quote('source'),
-        'district',
         'gidocode',
         'osirisid',
         'updatedat',
-        'districtid',
-        'provinceid',
         'searchstring',
-    ]) }} as _airbyte_wards_hashid,
+    ]) }} as _airbyte_districts_hashid,
     tmp.*
-from {{ ref('wards_ab2') }} tmp
--- wards
+from {{ ref('districts_ab2') }} tmp
+-- districts
 where 1 = 1
 {{ incremental_clause('_airbyte_emitted_at') }}
 
