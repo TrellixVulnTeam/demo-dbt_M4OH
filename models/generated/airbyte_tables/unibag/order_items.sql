@@ -19,7 +19,7 @@ select
     {{ adapter.quote('price') }}::json->'market' AS price_market,
     {{ adapter.quote('price') }}::json->'supplierPrice' AS price_of_supplier,
     {{ adapter.quote('price') }}::json->'weight' AS weight,
-    {{ adapter.quote('sku') }}::json->'_id' AS sku_id,
+    {{ adapter.quote('sku') }}::json->'_id'::text AS sku_id,
     {{ adapter.quote('sku') }}::json->'version' AS sku_version,
     {{ adapter.quote('user') }} AS seller_id,
     {{ adapter.quote('order') }} AS order_id,
