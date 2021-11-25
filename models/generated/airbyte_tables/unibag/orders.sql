@@ -12,7 +12,7 @@ select
     trackingcode AS tracking_code,
     status,
     banned,
-    jsonb_array_elements(CAST(tags as jsonb)) AS tags,
+    string_to_array(REPLACE(REPLACE(tags::text, '[', ''), ']', ''), ',') AS tags,
     isdeleted AS is_deleted,
     {{ adapter.quote('promotion') }}::json->'isApplied' AS promotion_is_applied,
     {{ adapter.quote('promotion') }}::json->'discount' AS promotion_discount_value,
