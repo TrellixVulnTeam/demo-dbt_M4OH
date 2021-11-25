@@ -8,12 +8,9 @@
 -- depends_on: {{ ref('order_histories_ab3') }}
 select
     _id,
-    {{ adapter.quote('order') }},
     status,
-    createdat,
-    {{ adapter.quote('timeStamp') }},
-    {{ adapter.quote('timestamp') }},
-    updatedat,
+    {{ adapter.quote('order') }} AS order_id,
+    createdat AS created_at,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,

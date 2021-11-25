@@ -8,16 +8,8 @@
 -- depends_on: {{ ref('product_categories_ab3') }}
 select
     _id,
-    icon,
     {{ adapter.quote('name') }},
-    color,
-    {{ adapter.quote('order') }},
     active,
-    covers,
-    featured,
-    createdat,
-    updatedat,
-    totalproduct,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
