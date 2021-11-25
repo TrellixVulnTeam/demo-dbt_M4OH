@@ -26,5 +26,4 @@ select
 from {{ ref('wards_ab2') }} tmp
 -- wards
 where 1 = 1
-{{ incremental_clause('_airbyte_emitted_at') }}
 

@@ -1,0 +1,37 @@
+{{ config(
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    unique_key = '_airbyte_ab_id',
+    schema = "unibag",
+    tags = [ "top-level" ]
+) }}
+-- Final base SQL model
+-- depends_on: {{ ref('teams_ab3') }}
+select
+    _id,
+    code,
+    {{ adapter.quote('desc') }},
+    logo,
+    {{ adapter.quote('name') }},
+    {{ adapter.quote('text') }},
+    color,
+    {{ adapter.quote('level') }},
+    active,
+    isfull,
+    citycode,
+    adminuser,
+    createdat,
+    statistic,
+    updatedat,
+    invitelink,
+    information,
+    searchstring,
+    inactivereason,
+    changingnamecount,
+    _airbyte_ab_id,
+    _airbyte_emitted_at,
+    {{ current_timestamp() }} as _airbyte_normalized_at,
+    _airbyte_teams_hashid
+from {{ ref('teams_ab3') }}
+-- teams from {{ source('unibag', '_airbyte_raw_teams') }}
+where 1 = 1
+
