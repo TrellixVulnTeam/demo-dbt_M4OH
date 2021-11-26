@@ -14,7 +14,7 @@ select
     citycode AS province_code,
     cast({{ adapter.quote('level') }}::json->>'level' AS integer) AS current_level_value,
     {{ adapter.quote('level') }}::json->>'name' AS current_level_name,
-    to_date(level::json->>'expiredAt', 'YYYY-MM-DDTHH24:MI:SSZ') AS current_level_expired_at,
+    to_date(level::json->>'expiredAt', 'YYYY-MM-DD"T"HH24:MI:SS"Z"') AS current_level_expired_at,
     cast({{ adapter.quote('level') }}::json->>'bonusPercent' AS numeric) AS bonus_percent,
     cast({{ adapter.quote('level') }}::json->>'maximumNumberMember' AS integer) AS stats_max_member,
     cast({{ adapter.quote('statistic') }}::json->>'memberTotal' AS integer) AS stats_current_member,
