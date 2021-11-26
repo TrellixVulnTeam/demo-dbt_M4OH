@@ -14,7 +14,7 @@ select
     {{ adapter.quote('phone') }}::json->>'verified' AS phone_verified,
     cast(phone::json->>'verifiedAt' AS date) AS phone_verified_at,
     {{ adapter.quote('info') }}::json->>'email' AS info_email,
-    {{ adapter.quote('info') }}::json->>'cityCode' AS info_province_code,
+    cast({{ adapter.quote('info') }}::json->>'cityCode' AS integer) AS info_province_code,
     {{ adapter.quote('info') }}::json->>'gender' AS info_gender,
     {{ adapter.quote('referral') }}::json->>'code' AS referral_code,
     registerfrom AS register_from,
