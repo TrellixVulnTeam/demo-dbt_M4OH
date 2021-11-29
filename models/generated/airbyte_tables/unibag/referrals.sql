@@ -10,7 +10,7 @@ select
     _id,
     {{ adapter.quote('user') }} AS seller_id,
     invitee AS invitee_id,
-    createdat AS created_at,
+    createdat::timestamp AS created_at,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
