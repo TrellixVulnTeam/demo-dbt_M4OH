@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('referrals_ab3') }}
 select
-    _id,
+    _id AS id,
     {{ adapter.quote('user') }} AS seller_id,
     invitee AS invitee_id,
     createdat::timestamp AS created_at,

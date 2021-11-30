@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('events_ab3') }}
 select
-    _id,
+    _id AS id,
     {{ adapter.quote('name') }},
     {{ adapter.quote('type') }},
     createdat::timestamp AS created_at,

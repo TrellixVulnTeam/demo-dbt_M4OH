@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('products_ab3') }}
 select
-    _id,
+    _id AS id,
     {{ adapter.quote('name') }},
     active,
     string_to_array(REPLACE(REPLACE(REPLACE(categories::text, '[', ''), ']', ''), '"', ''), ',') AS categories,

@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('suppliers_ab3') }}
 select
-    _id,
+    _id AS id,
     {{ adapter.quote('name') }},
     identifycode AS identify_code,
     _airbyte_ab_id,

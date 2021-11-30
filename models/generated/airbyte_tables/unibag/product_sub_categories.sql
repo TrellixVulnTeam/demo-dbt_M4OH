@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('product_sub_categories_ab3') }}
 select
-    _id,
+    _id AS id,
     {{ adapter.quote('name') }},
     active,
     parent AS parent_id,

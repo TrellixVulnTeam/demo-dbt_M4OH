@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('users_ab3') }}
 select
-    _id,
+    _id AS id,
     {{ adapter.quote('name') }},
     banned,
     {{ adapter.quote('phone') }}::json->>'full' AS phone_number,

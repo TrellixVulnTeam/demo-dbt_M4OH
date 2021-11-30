@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('orders_ab3') }}
 select
-    _id,
+    _id AS id,
     code,
     trackingcode AS tracking_code,
     status,

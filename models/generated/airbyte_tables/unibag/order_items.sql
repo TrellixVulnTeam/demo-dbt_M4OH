@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('order_items_ab3') }}
 select
-    _id,
+    _id AS id,
     status,
     quantity,
     cast({{ adapter.quote('price') }}::json->>'base' AS numeric) AS price_base,

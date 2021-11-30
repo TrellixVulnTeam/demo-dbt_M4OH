@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('customers_ab3') }}
 select
-    _id,
+    _id AS id,
     {{ adapter.quote('name') }},
     phone,
     cast({{ adapter.quote('statistic') }}::json->>'expenseTotal' AS numeric) AS stats_expense_total,

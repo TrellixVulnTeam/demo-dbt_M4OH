@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('product_sku_ab3') }}
 select
-    _id,
+    _id AS id,
     sku,
     {{ adapter.quote('name') }},
     active,
@@ -18,6 +18,7 @@ select
     cast({{ adapter.quote('price') }}::json->>'minimum' AS numeric) AS price_min,
     cast({{ adapter.quote('price') }}::json->>'maximum' AS numeric) AS price_max,
     cast({{ adapter.quote('price') }}::json->>'supplier' AS numeric) AS price_of_supplier,
+    cast({{ adapter.quote('info') }}::json->'inventory'->>'id' AS integer) AS inventory_code,
     {{ adapter.quote('info') }}::json->'inventory'->>'name' AS inventory_name,
     {{ adapter.quote('info') }}::json->'supplier'->>'_id' AS supplier_id,
     {{ adapter.quote('info') }}::json->'supplier'->>'name' AS supplier_name,

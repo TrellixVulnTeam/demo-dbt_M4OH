@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('event_rewards_ab3') }}
 select
-    _id,
+    _id AS id,
     cash,
     {{ adapter.quote('type') }},
     status,

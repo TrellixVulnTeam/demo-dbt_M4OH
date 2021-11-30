@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('cash_flows_ab3') }}
 select
-    _id,
+    _id AS id,
     {{ adapter.quote('value') }},
     {{ adapter.quote('action') }},
     status,

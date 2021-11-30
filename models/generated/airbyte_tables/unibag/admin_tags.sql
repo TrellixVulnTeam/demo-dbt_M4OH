@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('admin_tags_ab3') }}
 select
-    _id,
+    _id AS id,
     {{ adapter.quote('name') }},
     {{ adapter.quote('type') }},
     color,

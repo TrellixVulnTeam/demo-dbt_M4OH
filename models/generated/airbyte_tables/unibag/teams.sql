@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('teams_ab3') }}
 select
-    _id,
+    _id AS id,
     {{ adapter.quote('name') }},
     active,
     adminuser AS admin_id,

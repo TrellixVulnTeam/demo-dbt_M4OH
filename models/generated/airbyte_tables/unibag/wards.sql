@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('wards_ab3') }}
 select
-    _id,
+    _id AS id,
     code,
     {{ adapter.quote('name') }},
     slug,

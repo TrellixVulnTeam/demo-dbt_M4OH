@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('order_histories_ab3') }}
 select
-    _id,
+    _id AS id,
     status,
     {{ adapter.quote('order') }} AS order_id,
     createdat::timestamp AS created_at,

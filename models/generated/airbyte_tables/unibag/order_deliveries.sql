@@ -7,7 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('order_deliveries_ab3') }}
 select
-    _id,
+    _id AS id,
     title,
     status,
     cast(promotion::json->>'discount' AS numeric) AS discount_value,
