@@ -12,7 +12,7 @@ select
     active,
     adminuser AS admin_id,
     citycode AS province_code,
-    cast({{ adapter.quote('level') }}::json->>'level' AS integer) AS current_level_value,
+    cast({{ adapter.quote('level') }}::json->>'level' AS numeric) AS current_level_value,
     {{ adapter.quote('level') }}::json->>'name' AS current_level_name,
     cast(level::json->>'expiredAt' AS timestamp) AS current_level_expired_at,
     cast({{ adapter.quote('level') }}::json->>'bonusPercent' AS numeric) AS bonus_percent,
