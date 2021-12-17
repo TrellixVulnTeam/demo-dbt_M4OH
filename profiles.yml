@@ -6,9 +6,9 @@ config:
 normalize:
   outputs:
     prod:
-      dbname: selly
-      host: 127.0.0.1
-      pass: '12344321'
+      dbname: mongo_etl
+      host: 13.251.179.109
+      pass: 'bvxJaDGW2R55uyDXfODJ2a0Y'
       port: 5432
       schema: public
       threads: 32

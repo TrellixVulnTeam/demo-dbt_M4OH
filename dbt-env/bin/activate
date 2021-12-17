@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/ubuntu/demo-dbt/dbt-env"
+VIRTUAL_ENV="/home/ubuntu/airbyte/workspace/demo-dbt/dbt-env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
