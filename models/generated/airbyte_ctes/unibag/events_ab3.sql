@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -19,9 +19,10 @@ select
         'article',
         adapter.quote('options'),
         'startat',
-        array_to_string('segments'),
+        'segments',
         'createdat',
         'updatedat',
+        'information',
         boolean_to_string('isapplyforall'),
     ]) }} as _airbyte_events_hashid,
     tmp.*

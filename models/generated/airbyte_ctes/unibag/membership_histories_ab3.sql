@@ -5,19 +5,18 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref('team_activities_ab2') }}
+-- depends_on: {{ ref('membership_histories_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
         '_id',
-        'team',
-        adapter.quote('action'),
-        adapter.quote('options'),
-        'targetid',
+        adapter.quote('new'),
+        adapter.quote('old'),
+        adapter.quote('type'),
+        adapter.quote('user'),
         'createdat',
-        'createdby',
-    ]) }} as _airbyte_team_activities_hashid,
+    ]) }} as _airbyte_membership_histories_hashid,
     tmp.*
-from {{ ref('team_activities_ab2') }} tmp
--- team_activities
+from {{ ref('membership_histories_ab2') }} tmp
+-- membership_histories
 where 1 = 1
 

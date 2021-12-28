@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -9,12 +9,12 @@
 select
     {{ json_extract_scalar('_airbyte_data', ['_id'], ['_id']) }} as _id,
     {{ json_extract_scalar('_airbyte_data', ['tax'], ['tax']) }} as tax,
-    {{ json_extract('table_alias', '_airbyte_data', ['bank'], ['bank']) }} as bank,
+    {{ json_extract_scalar('_airbyte_data', ['bank'], ['bank']) }} as bank,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as {{ adapter.quote('name') }},
     {{ json_extract_scalar('_airbyte_data', ['active'], ['active']) }} as active,
     {{ json_extract_scalar('_airbyte_data', ['checkSum'], ['checkSum']) }} as checksum,
     {{ json_extract_scalar('_airbyte_data', ['checksum'], ['checksum']) }} as checksum_1,
-    {{ json_extract('table_alias', '_airbyte_data', ['location'], ['location']) }} as {{ adapter.quote('location') }},
+    {{ json_extract_scalar('_airbyte_data', ['location'], ['location']) }} as {{ adapter.quote('location') }},
     {{ json_extract_scalar('_airbyte_data', ['createdAt'], ['createdAt']) }} as createdat,
     {{ json_extract_array('_airbyte_data', ['documents'], ['documents']) }} as documents,
     {{ json_extract_scalar('_airbyte_data', ['updatedAt'], ['updatedAt']) }} as updatedat,

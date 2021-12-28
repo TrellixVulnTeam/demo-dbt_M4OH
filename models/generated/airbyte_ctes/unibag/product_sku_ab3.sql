@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -25,15 +25,17 @@ select
         adapter.quote('version'),
         'groupsku',
         'quantity',
+        'unitcode',
         'createdat',
         'statistic',
         'updatedat',
-        'couponinfo',
         array_to_string('properties'),
         'suppliersku',
         boolean_to_string('isoutofstock'),
         'pricepercent',
         'searchstring',
+        'updateactiveid',
+        boolean_to_string('displayinventory'),
     ]) }} as _airbyte_product_sku_hashid,
     tmp.*
 from {{ ref('product_sku_ab2') }} tmp

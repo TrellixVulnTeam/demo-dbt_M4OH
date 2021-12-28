@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -8,7 +8,7 @@
 -- depends_on: {{ ref('product_categories_ab1') }}
 select
     cast(_id as {{ dbt_utils.type_string() }}) as _id,
-    cast(icon as {{ type_json() }}) as icon,
+    cast(icon as {{ dbt_utils.type_string() }}) as icon,
     cast({{ adapter.quote('name') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('name') }},
     cast(color as {{ dbt_utils.type_string() }}) as color,
     cast({{ adapter.quote('order') }} as {{ dbt_utils.type_float() }}) as {{ adapter.quote('order') }},

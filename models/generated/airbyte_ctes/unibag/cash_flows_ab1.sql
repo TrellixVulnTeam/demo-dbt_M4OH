@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -11,8 +11,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['user'], ['user']) }} as {{ adapter.quote('user') }},
     {{ json_extract_scalar('_airbyte_data', ['value'], ['value']) }} as {{ adapter.quote('value') }},
     {{ json_extract_scalar('_airbyte_data', ['action'], ['action']) }} as {{ adapter.quote('action') }},
-    {{ json_extract_scalar('_airbyte_data', ['status'], ['status']) }} as status,
-    {{ json_extract('table_alias', '_airbyte_data', ['options'], ['options']) }} as {{ adapter.quote('options') }},
+    {{ json_extract_scalar('_airbyte_data', ['options'], ['options']) }} as {{ adapter.quote('options') }},
     {{ json_extract_scalar('_airbyte_data', ['category'], ['category']) }} as category,
     {{ json_extract_scalar('_airbyte_data', ['targetId'], ['targetId']) }} as targetid,
     {{ json_extract_scalar('_airbyte_data', ['createdAt'], ['createdAt']) }} as createdat,

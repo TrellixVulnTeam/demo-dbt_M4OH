@@ -8,7 +8,7 @@ normalize:
     prod:
       dbname: mongo_etl
       host: 13.251.179.109
-      pass: 'bvxJaDGW2R55uyDXfODJ2a0Y'
+      pass: bvxJaDGW2R55uyDXfODJ2a0Y
       port: 5432
       schema: public
       threads: 32

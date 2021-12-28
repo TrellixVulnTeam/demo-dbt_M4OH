@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -11,8 +11,10 @@ select
     cast(code as {{ dbt_utils.type_float() }}) as code,
     cast({{ adapter.quote('name') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('name') }},
     cast(slug as {{ dbt_utils.type_string() }}) as slug,
+    cast(tncid as {{ dbt_utils.type_float() }}) as tncid,
     cast(cityid as {{ dbt_utils.type_float() }}) as cityid,
     cast({{ adapter.quote('source') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('source') }},
+    cast(tnccode as {{ dbt_utils.type_string() }}) as tnccode,
     cast(district as {{ dbt_utils.type_string() }}) as district,
     cast(gidocode as {{ dbt_utils.type_float() }}) as gidocode,
     cast(osirisid as {{ dbt_utils.type_float() }}) as osirisid,

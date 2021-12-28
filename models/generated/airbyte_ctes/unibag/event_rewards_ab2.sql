@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -13,11 +13,9 @@ select
     cast({{ adapter.quote('user') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('user') }},
     cast({{ adapter.quote('event') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('event') }},
     cast(status as {{ dbt_utils.type_string() }}) as status,
-    cast({{ adapter.quote('options') }} as {{ type_json() }}) as {{ adapter.quote('options') }},
+    cast({{ adapter.quote('options') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('options') }},
     cast(createdat as {{ dbt_utils.type_string() }}) as createdat,
     cast(updatedat as {{ dbt_utils.type_string() }}) as updatedat,
-    cast(updatedat_1 as {{ dbt_utils.type_string() }}) as updatedat_1,
-    {{ cast_to_boolean('fromsystem') }} as fromsystem,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

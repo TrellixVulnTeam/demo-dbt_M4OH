@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -9,12 +9,12 @@
 select
     cast(_id as {{ dbt_utils.type_string() }}) as _id,
     cast(tax as {{ dbt_utils.type_string() }}) as tax,
-    cast(bank as {{ type_json() }}) as bank,
+    cast(bank as {{ dbt_utils.type_string() }}) as bank,
     cast({{ adapter.quote('name') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('name') }},
     {{ cast_to_boolean('active') }} as active,
     cast(checksum as {{ dbt_utils.type_string() }}) as checksum,
     cast(checksum_1 as {{ dbt_utils.type_string() }}) as checksum_1,
-    cast({{ adapter.quote('location') }} as {{ type_json() }}) as {{ adapter.quote('location') }},
+    cast({{ adapter.quote('location') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('location') }},
     cast(createdat as {{ dbt_utils.type_string() }}) as createdat,
     documents,
     cast(updatedat as {{ dbt_utils.type_string() }}) as updatedat,

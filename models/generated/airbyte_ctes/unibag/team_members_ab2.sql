@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -16,11 +16,11 @@ select
     cast(joinedat as {{ dbt_utils.type_string() }}) as joinedat,
     cast(rolecode as {{ dbt_utils.type_float() }}) as rolecode,
     cast(createdat as {{ dbt_utils.type_string() }}) as createdat,
-    cast(statistic as {{ type_json() }}) as statistic,
+    cast(statistic as {{ dbt_utils.type_string() }}) as statistic,
     cast(updatedat as {{ dbt_utils.type_string() }}) as updatedat,
     cast(isremovedby as {{ dbt_utils.type_string() }}) as isremovedby,
     cast(searchstring as {{ dbt_utils.type_string() }}) as searchstring,
-    cast(statisticmonth as {{ type_json() }}) as statisticmonth,
+    cast(statisticmonth as {{ dbt_utils.type_string() }}) as statisticmonth,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

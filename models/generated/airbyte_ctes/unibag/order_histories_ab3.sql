@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -13,7 +13,6 @@ select
         'status',
         'createdat',
         adapter.quote('timeStamp'),
-        adapter.quote('timestamp'),
         'updatedat',
     ]) }} as _airbyte_order_histories_hashid,
     tmp.*

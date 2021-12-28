@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -13,11 +13,9 @@ select
         'code',
         adapter.quote('name'),
         'slug',
-        'email',
-        'phone',
         boolean_to_string('active'),
-        'address',
         'contact',
+        'partner',
         'checksum',
         adapter.quote('location'),
         'supplier',

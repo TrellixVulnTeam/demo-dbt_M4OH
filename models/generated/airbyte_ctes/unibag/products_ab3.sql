@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -28,7 +28,9 @@ select
         'statistic',
         'updatedat',
         array_to_string('categories'),
+        'inactiveat',
         array_to_string('properties'),
+        array_to_string('inventories'),
         boolean_to_string('isoutofstock'),
         'pricepercent',
         'searchstring',
@@ -36,8 +38,11 @@ select
         'inactivereason',
         'propertiesmain',
         'sharestatistic',
+        'updateactiveid',
         boolean_to_string('canissueinvoice'),
         boolean_to_string('pendinginactive'),
+        'reviewstatistic',
+        array_to_string('highlightproperties'),
     ]) }} as _airbyte_products_hashid,
     tmp.*
 from {{ ref('products_ab2') }} tmp

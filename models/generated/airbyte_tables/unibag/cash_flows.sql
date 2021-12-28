@@ -10,7 +10,6 @@ select
     _id AS id,
     {{ adapter.quote('value') }},
     {{ adapter.quote('action') }},
-    status,
     newbalance AS new_balance,
     oldbalance AS old_balance,
     targetid AS target_id,
@@ -24,4 +23,3 @@ select
 from {{ ref('cash_flows_ab3') }}
 -- cash_flows from {{ source('unibag', '_airbyte_raw_cash_flows') }}
 where 1 = 1
-

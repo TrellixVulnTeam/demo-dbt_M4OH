@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -11,8 +11,10 @@ select
     {{ json_extract_scalar('_airbyte_data', ['code'], ['code']) }} as code,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as {{ adapter.quote('name') }},
     {{ json_extract_scalar('_airbyte_data', ['slug'], ['slug']) }} as slug,
+    {{ json_extract_scalar('_airbyte_data', ['tncId'], ['tncId']) }} as tncid,
     {{ json_extract_scalar('_airbyte_data', ['cityId'], ['cityId']) }} as cityid,
     {{ json_extract_scalar('_airbyte_data', ['source'], ['source']) }} as {{ adapter.quote('source') }},
+    {{ json_extract_scalar('_airbyte_data', ['tncCode'], ['tncCode']) }} as tnccode,
     {{ json_extract_scalar('_airbyte_data', ['district'], ['district']) }} as district,
     {{ json_extract_scalar('_airbyte_data', ['gidoCode'], ['gidoCode']) }} as gidocode,
     {{ json_extract_scalar('_airbyte_data', ['osirisId'], ['osirisId']) }} as osirisid,

@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -17,8 +17,6 @@ select
         adapter.quote('options'),
         'createdat',
         'updatedat',
-        'updatedat_1',
-        boolean_to_string('fromsystem'),
     ]) }} as _airbyte_event_rewards_hashid,
     tmp.*
 from {{ ref('event_rewards_ab2') }} tmp

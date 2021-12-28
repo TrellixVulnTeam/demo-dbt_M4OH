@@ -15,6 +15,7 @@ sources:
   - name: _airbyte_raw_events
   - name: _airbyte_raw_inventories
   - name: _airbyte_raw_membership
+  - name: _airbyte_raw_membership_histories
   - name: _airbyte_raw_order_deliveries
   - name: _airbyte_raw_order_histories
   - name: _airbyte_raw_order_items

@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "_airbyte_unibag",
     tags = [ "top-level-intermediate" ]
@@ -12,9 +12,11 @@ select
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as {{ adapter.quote('name') }},
     {{ json_extract_scalar('_airbyte_data', ['slug'], ['slug']) }} as slug,
     {{ json_extract_scalar('_airbyte_data', ['order'], ['order']) }} as {{ adapter.quote('order') }},
+    {{ json_extract_scalar('_airbyte_data', ['tncId'], ['tncId']) }} as tncid,
     {{ json_extract_scalar('_airbyte_data', ['region'], ['region']) }} as region,
     {{ json_extract_scalar('_airbyte_data', ['source'], ['source']) }} as {{ adapter.quote('source') }},
     {{ json_extract_scalar('_airbyte_data', ['tempId'], ['tempId']) }} as tempid,
+    {{ json_extract_scalar('_airbyte_data', ['tncCode'], ['tncCode']) }} as tnccode,
     {{ json_extract_scalar('_airbyte_data', ['osirisId'], ['osirisId']) }} as osirisid,
     {{ json_extract_scalar('_airbyte_data', ['updatedAt'], ['updatedAt']) }} as updatedat,
     {{ json_extract_scalar('_airbyte_data', ['searchString'], ['searchString']) }} as searchstring,
