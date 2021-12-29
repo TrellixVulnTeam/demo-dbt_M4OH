@@ -12,7 +12,6 @@ select
     {{ adapter.quote('old') }}::json->>'name' AS old_membership_name,
     cast({{ adapter.quote('new') }}::json->>'level' AS numeric) AS new_membership_level,
     {{ adapter.quote('new') }}::json->>'name' AS new_membership_name,
-    {{ adapter.quote('old') }},
     {{ adapter.quote('type') }},
     {{ adapter.quote('user') }} AS seller_id,
     createdat::timestamp AS created_at,
