@@ -18,7 +18,7 @@ select
     {{ adapter.quote('info') }}::json->>'gender' AS info_gender,
     {{ adapter.quote('referral') }}::json->>'code' AS referral_code,
     registerfrom AS register_from,
-    cast({{ adapter.quote('membership') }}::json->>'currentLevel' AS integer) AS membership_current_level,
+    cast({{ adapter.quote('membership') }}::json->>'currentLevel' AS numeric) AS membership_current_level,
     cast({{ adapter.quote('membership') }}::json->>'expireAt' AS timestamp) AS membership_expire_at,
     createdat::timestamp AS created_at,
     updatedat::timestamp AS updated_at,
