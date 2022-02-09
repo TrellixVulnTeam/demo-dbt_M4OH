@@ -6,12 +6,12 @@ config:
 normalize:
   outputs:
     prod:
-      dbname: mongo_etl
-      host: 13.251.179.109
+      dbname: dev_mongo_etl
+      host: 18.140.112.89
       pass: bvxJaDGW2R55uyDXfODJ2a0Y
       port: 5432
       schema: public
-      threads: 32
+      threads: 8
       type: postgres
       user: selly
   target: prod

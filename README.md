@@ -1,4 +1,3 @@
-
 ## Installing dbt
 
 1. Activate your venv and run `pip3 install dbt`

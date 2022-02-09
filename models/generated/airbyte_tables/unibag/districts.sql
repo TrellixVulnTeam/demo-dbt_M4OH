@@ -1,5 +1,5 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'hash'}],
+    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
     unique_key = '_airbyte_ab_id',
     schema = "unibag",
     tags = [ "top-level" ]
@@ -7,11 +7,18 @@
 -- Final base SQL model
 -- depends_on: {{ ref('districts_ab3') }}
 select
-    _id AS id,
+    _id,
     code,
     {{ adapter.quote('name') }},
     slug,
-    cityid AS province_code,
+    tncid,
+    cityid,
+    {{ adapter.quote('source') }},
+    tnccode,
+    gidocode,
+    osirisid,
+    updatedat,
+    searchstring,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at,
