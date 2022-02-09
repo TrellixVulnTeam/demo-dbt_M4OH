@@ -1,0 +1,1 @@
+{"ssl":false,"host":"127.0.0.1","port":5432,"schema":"public","database":"mongo_etl","password":"bvxJaDGW2R55uyDXfODJ2a0Y","username":"selly","tunnel_method":{"tunnel_host":"18.140.112.89","tunnel_port":22,"tunnel_user":"Administrator","tunnel_method":"SSH_PASSWORD_AUTH","tunnel_user_password":"SNcCjaTDuPG!v8*C(;qUN84XX6U9*CWl"}}
