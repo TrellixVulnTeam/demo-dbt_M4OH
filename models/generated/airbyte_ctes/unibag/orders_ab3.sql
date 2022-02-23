@@ -41,6 +41,7 @@ select
         'approvedat',
         'cashbackat',
         'codeosiris',
+        boolean_to_string('ispreorder'),
         'membership',
         'rejectedat',
         'deliveredat',

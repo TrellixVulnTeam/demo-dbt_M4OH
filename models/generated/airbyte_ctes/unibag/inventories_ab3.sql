@@ -8,7 +8,6 @@
 -- depends_on: {{ ref('inventories_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
-        adapter.quote('id'),
         '_id',
         'code',
         adapter.quote('name'),
@@ -25,8 +24,11 @@ select
         'searchstring',
         'paymentmethods',
         boolean_to_string('canissueinvoice'),
+        array_to_string('deliverymethods'),
         boolean_to_string('canautosendemail'),
+        'invoicedeliverymethod',
         boolean_to_string('doessupportsellyexpress'),
+        'prioritydeliveryservicecodes',
     ]) }} as _airbyte_inventories_hashid,
     tmp.*
 from {{ ref('inventories_ab2') }} tmp

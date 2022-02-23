@@ -40,6 +40,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['approvedAt'], ['approvedAt']) }} as approvedat,
     {{ json_extract_scalar('_airbyte_data', ['cashbackAt'], ['cashbackAt']) }} as cashbackat,
     {{ json_extract_scalar('_airbyte_data', ['codeOsiris'], ['codeOsiris']) }} as codeosiris,
+    {{ json_extract_scalar('_airbyte_data', ['isPreorder'], ['isPreorder']) }} as ispreorder,
     {{ json_extract_scalar('_airbyte_data', ['membership'], ['membership']) }} as membership,
     {{ json_extract_scalar('_airbyte_data', ['rejectedAt'], ['rejectedAt']) }} as rejectedat,
     {{ json_extract_scalar('_airbyte_data', ['deliveredAt'], ['deliveredAt']) }} as deliveredat,

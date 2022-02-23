@@ -13,6 +13,7 @@ select
         'color',
         'guide',
         adapter.quote('level'),
+        'sales',
         boolean_to_string('active'),
         'createdat',
         'updatedat',

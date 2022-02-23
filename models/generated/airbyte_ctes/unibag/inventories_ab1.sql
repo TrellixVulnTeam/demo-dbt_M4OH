@@ -7,7 +7,6 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('unibag', '_airbyte_raw_inventories') }}
 select
-    {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as {{ adapter.quote('id') }},
     {{ json_extract_scalar('_airbyte_data', ['_id'], ['_id']) }} as _id,
     {{ json_extract_scalar('_airbyte_data', ['code'], ['code']) }} as code,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as {{ adapter.quote('name') }},
@@ -24,8 +23,11 @@ select
     {{ json_extract_scalar('_airbyte_data', ['searchString'], ['searchString']) }} as searchstring,
     {{ json_extract_scalar('_airbyte_data', ['paymentMethods'], ['paymentMethods']) }} as paymentmethods,
     {{ json_extract_scalar('_airbyte_data', ['canIssueInvoice'], ['canIssueInvoice']) }} as canissueinvoice,
+    {{ json_extract_array('_airbyte_data', ['deliveryMethods'], ['deliveryMethods']) }} as deliverymethods,
     {{ json_extract_scalar('_airbyte_data', ['canAutoSendEmail'], ['canAutoSendEmail']) }} as canautosendemail,
+    {{ json_extract_scalar('_airbyte_data', ['invoiceDeliveryMethod'], ['invoiceDeliveryMethod']) }} as invoicedeliverymethod,
     {{ json_extract_scalar('_airbyte_data', ['doesSupportSellyExpress'], ['doesSupportSellyExpress']) }} as doessupportsellyexpress,
+    {{ json_extract_scalar('_airbyte_data', ['priorityDeliveryServiceCodes'], ['priorityDeliveryServiceCodes']) }} as prioritydeliveryservicecodes,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

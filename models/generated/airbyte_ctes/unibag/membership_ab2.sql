@@ -12,6 +12,7 @@ select
     cast(color as {{ dbt_utils.type_string() }}) as color,
     cast(guide as {{ dbt_utils.type_string() }}) as guide,
     cast({{ adapter.quote('level') }} as {{ dbt_utils.type_float() }}) as {{ adapter.quote('level') }},
+    cast(sales as {{ dbt_utils.type_float() }}) as sales,
     {{ cast_to_boolean('active') }} as active,
     cast(createdat as {{ dbt_utils.type_string() }}) as createdat,
     cast(updatedat as {{ dbt_utils.type_string() }}) as updatedat,

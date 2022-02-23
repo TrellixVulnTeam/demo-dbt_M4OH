@@ -12,6 +12,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['color'], ['color']) }} as color,
     {{ json_extract_scalar('_airbyte_data', ['guide'], ['guide']) }} as guide,
     {{ json_extract_scalar('_airbyte_data', ['level'], ['level']) }} as {{ adapter.quote('level') }},
+    {{ json_extract_scalar('_airbyte_data', ['sales'], ['sales']) }} as sales,
     {{ json_extract_scalar('_airbyte_data', ['active'], ['active']) }} as active,
     {{ json_extract_scalar('_airbyte_data', ['createdAt'], ['createdAt']) }} as createdat,
     {{ json_extract_scalar('_airbyte_data', ['updatedAt'], ['updatedAt']) }} as updatedat,

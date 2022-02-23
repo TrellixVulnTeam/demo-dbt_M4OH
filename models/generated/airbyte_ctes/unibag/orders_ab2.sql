@@ -40,6 +40,7 @@ select
     cast(approvedat as {{ dbt_utils.type_string() }}) as approvedat,
     cast(cashbackat as {{ dbt_utils.type_string() }}) as cashbackat,
     cast(codeosiris as {{ dbt_utils.type_string() }}) as codeosiris,
+    {{ cast_to_boolean('ispreorder') }} as ispreorder,
     cast(membership as {{ dbt_utils.type_string() }}) as membership,
     cast(rejectedat as {{ dbt_utils.type_string() }}) as rejectedat,
     cast(deliveredat as {{ dbt_utils.type_string() }}) as deliveredat,

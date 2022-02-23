@@ -9,6 +9,7 @@
 select
     {{ dbt_utils.surrogate_key([
         '_id',
+        'hash',
         adapter.quote('user'),
         adapter.quote('value'),
         adapter.quote('action'),
@@ -16,10 +17,13 @@ select
         'category',
         'targetid',
         'createdat',
+        boolean_to_string('isaudited'),
         'updatedat',
         'newbalance',
         'oldbalance',
         'targettype',
+        boolean_to_string('isprocessed'),
+        'processstatus',
     ]) }} as _airbyte_cash_flows_hashid,
     tmp.*
 from {{ ref('cash_flows_ab2') }} tmp

@@ -8,6 +8,7 @@
 -- depends_on: {{ ref('districts_ab1') }}
 select
     cast(_id as {{ dbt_utils.type_string() }}) as _id,
+    cast(city as {{ dbt_utils.type_string() }}) as city,
     cast(code as {{ dbt_utils.type_float() }}) as code,
     cast({{ adapter.quote('name') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('name') }},
     cast(slug as {{ dbt_utils.type_string() }}) as slug,

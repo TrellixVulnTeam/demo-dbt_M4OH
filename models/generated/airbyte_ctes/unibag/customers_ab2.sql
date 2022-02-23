@@ -8,6 +8,7 @@
 -- depends_on: {{ ref('customers_ab1') }}
 select
     cast(_id as {{ dbt_utils.type_string() }}) as _id,
+    cast(info as {{ dbt_utils.type_string() }}) as info,
     cast({{ adapter.quote('name') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('name') }},
     cast({{ adapter.quote('user') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('user') }},
     cast(phone as {{ dbt_utils.type_string() }}) as phone,

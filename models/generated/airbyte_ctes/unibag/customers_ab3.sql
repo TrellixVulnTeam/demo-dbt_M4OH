@@ -9,6 +9,7 @@
 select
     {{ dbt_utils.surrogate_key([
         '_id',
+        'info',
         adapter.quote('name'),
         adapter.quote('user'),
         'phone',

@@ -8,6 +8,7 @@
 -- depends_on: {{ source('unibag', '_airbyte_raw_wards') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['_id'], ['_id']) }} as _id,
+    {{ json_extract_scalar('_airbyte_data', ['city'], ['city']) }} as city,
     {{ json_extract_scalar('_airbyte_data', ['code'], ['code']) }} as code,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as {{ adapter.quote('name') }},
     {{ json_extract_scalar('_airbyte_data', ['slug'], ['slug']) }} as slug,

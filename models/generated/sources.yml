@@ -30,5 +30,6 @@ sources:
   - name: _airbyte_raw_team_activities
   - name: _airbyte_raw_team_members
   - name: _airbyte_raw_teams
+  - name: _airbyte_raw_user_identifications
   - name: _airbyte_raw_users
   - name: _airbyte_raw_wards

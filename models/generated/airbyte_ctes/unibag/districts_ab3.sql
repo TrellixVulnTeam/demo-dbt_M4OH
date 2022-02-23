@@ -9,6 +9,7 @@
 select
     {{ dbt_utils.surrogate_key([
         '_id',
+        'city',
         'code',
         adapter.quote('name'),
         'slug',

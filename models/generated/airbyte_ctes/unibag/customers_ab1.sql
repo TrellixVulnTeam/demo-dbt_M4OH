@@ -8,6 +8,7 @@
 -- depends_on: {{ source('unibag', '_airbyte_raw_customers') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['_id'], ['_id']) }} as _id,
+    {{ json_extract_scalar('_airbyte_data', ['info'], ['info']) }} as info,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as {{ adapter.quote('name') }},
     {{ json_extract_scalar('_airbyte_data', ['user'], ['user']) }} as {{ adapter.quote('user') }},
     {{ json_extract_scalar('_airbyte_data', ['phone'], ['phone']) }} as phone,
