@@ -27,7 +27,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['canAutoSendEmail'], ['canAutoSendEmail']) }} as canautosendemail,
     {{ json_extract_scalar('_airbyte_data', ['invoiceDeliveryMethod'], ['invoiceDeliveryMethod']) }} as invoicedeliverymethod,
     {{ json_extract_scalar('_airbyte_data', ['doesSupportSellyExpress'], ['doesSupportSellyExpress']) }} as doessupportsellyexpress,
-    {{ json_extract_scalar('_airbyte_data', ['priorityDeliveryServiceCodes'], ['priorityDeliveryServiceCodes']) }} as prioritydeliveryservicecodes,
+    {{ json_extract_array('_airbyte_data', ['priorityDeliveryServiceCodes'], ['priorityDeliveryServiceCodes']) }} as prioritydeliveryservicecodes,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

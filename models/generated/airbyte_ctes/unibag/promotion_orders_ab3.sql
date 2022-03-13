@@ -5,28 +5,25 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to build a hash column based on the values of this record
--- depends_on: {{ ref('order_items_ab2') }}
+-- depends_on: {{ ref('promotion_orders_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
         '_id',
-        'sku',
-        adapter.quote('date'),
         adapter.quote('user'),
         adapter.quote('order'),
-        'price',
+        'title',
         'status',
-        'product',
-        'customer',
-        'quantity',
+        'supplier',
         'createdat',
-        'totalsell',
+        'promotion',
         'updatedat',
         'cashbackat',
-        'totalprice',
-        'deliveredat',
-    ]) }} as _airbyte_order_items_hashid,
+        'commission',
+        boolean_to_string('isrejected'),
+        'quantitypromotion',
+    ]) }} as _airbyte_promotion_orders_hashid,
     tmp.*
-from {{ ref('order_items_ab2') }} tmp
--- order_items
+from {{ ref('promotion_orders_ab2') }} tmp
+-- promotion_orders
 where 1 = 1
 

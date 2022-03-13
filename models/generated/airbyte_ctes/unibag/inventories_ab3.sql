@@ -28,7 +28,7 @@ select
         boolean_to_string('canautosendemail'),
         'invoicedeliverymethod',
         boolean_to_string('doessupportsellyexpress'),
-        'prioritydeliveryservicecodes',
+        array_to_string('prioritydeliveryservicecodes'),
     ]) }} as _airbyte_inventories_hashid,
     tmp.*
 from {{ ref('inventories_ab2') }} tmp

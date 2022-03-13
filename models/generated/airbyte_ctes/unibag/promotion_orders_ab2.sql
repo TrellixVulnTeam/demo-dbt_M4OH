@@ -5,28 +5,25 @@
     tags = [ "top-level-intermediate" ]
 ) }}
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
--- depends_on: {{ ref('order_items_ab1') }}
+-- depends_on: {{ ref('promotion_orders_ab1') }}
 select
     cast(_id as {{ dbt_utils.type_string() }}) as _id,
-    cast(sku as {{ dbt_utils.type_string() }}) as sku,
-    cast({{ adapter.quote('date') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('date') }},
     cast({{ adapter.quote('user') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('user') }},
     cast({{ adapter.quote('order') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('order') }},
-    cast(price as {{ dbt_utils.type_string() }}) as price,
+    cast(title as {{ dbt_utils.type_string() }}) as title,
     cast(status as {{ dbt_utils.type_string() }}) as status,
-    cast(product as {{ dbt_utils.type_string() }}) as product,
-    cast(customer as {{ dbt_utils.type_string() }}) as customer,
-    cast(quantity as {{ dbt_utils.type_float() }}) as quantity,
+    cast(supplier as {{ dbt_utils.type_string() }}) as supplier,
     cast(createdat as {{ dbt_utils.type_string() }}) as createdat,
-    cast(totalsell as {{ dbt_utils.type_float() }}) as totalsell,
+    cast(promotion as {{ dbt_utils.type_string() }}) as promotion,
     cast(updatedat as {{ dbt_utils.type_string() }}) as updatedat,
     cast(cashbackat as {{ dbt_utils.type_string() }}) as cashbackat,
-    cast(totalprice as {{ dbt_utils.type_float() }}) as totalprice,
-    cast(deliveredat as {{ dbt_utils.type_string() }}) as deliveredat,
+    cast(commission as {{ dbt_utils.type_float() }}) as commission,
+    {{ cast_to_boolean('isrejected') }} as isrejected,
+    cast(quantitypromotion as {{ dbt_utils.type_float() }}) as quantitypromotion,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
-from {{ ref('order_items_ab1') }}
--- order_items
+from {{ ref('promotion_orders_ab1') }}
+-- promotion_orders
 where 1 = 1
 

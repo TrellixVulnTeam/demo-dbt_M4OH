@@ -12,6 +12,7 @@ select
     cast({{ adapter.quote('desc') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('desc') }},
     cast(logo as {{ dbt_utils.type_string() }}) as logo,
     cast({{ adapter.quote('name') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('name') }},
+    cast({{ adapter.quote('temp') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('temp') }},
     cast({{ adapter.quote('level') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('level') }},
     {{ cast_to_boolean('active') }} as active,
     {{ cast_to_boolean('isfull') }} as isfull,

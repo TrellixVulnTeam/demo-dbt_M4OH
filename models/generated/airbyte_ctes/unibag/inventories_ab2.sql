@@ -27,7 +27,7 @@ select
     {{ cast_to_boolean('canautosendemail') }} as canautosendemail,
     cast(invoicedeliverymethod as {{ dbt_utils.type_string() }}) as invoicedeliverymethod,
     {{ cast_to_boolean('doessupportsellyexpress') }} as doessupportsellyexpress,
-    cast(prioritydeliveryservicecodes as {{ dbt_utils.type_string() }}) as prioritydeliveryservicecodes,
+    prioritydeliveryservicecodes,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

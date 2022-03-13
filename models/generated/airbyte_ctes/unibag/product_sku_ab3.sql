@@ -25,7 +25,6 @@ select
         'product',
         adapter.quote('version'),
         'groupsku',
-        'quantity',
         'unitcode',
         'createdat',
         'restockat',
@@ -37,8 +36,11 @@ select
         boolean_to_string('isoutofstock'),
         'pricepercent',
         'searchstring',
+        'updatereason',
         'updateactiveid',
         boolean_to_string('displayinventory'),
+        boolean_to_string('showremainingquantity'),
+        'quantity_aibyte_transform',
     ]) }} as _airbyte_product_sku_hashid,
     tmp.*
 from {{ ref('product_sku_ab2') }} tmp

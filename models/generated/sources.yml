@@ -25,6 +25,8 @@ sources:
   - name: _airbyte_raw_product_sku_versions
   - name: _airbyte_raw_product_sub_categories
   - name: _airbyte_raw_products
+  - name: _airbyte_raw_promotion_orders
+  - name: _airbyte_raw_promotions
   - name: _airbyte_raw_referrals
   - name: _airbyte_raw_suppliers
   - name: _airbyte_raw_team_activities
