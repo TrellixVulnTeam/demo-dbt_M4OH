@@ -18,6 +18,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['number'], ['number']) }} as {{ adapter.quote('number') }},
     {{ json_extract_scalar('_airbyte_data', ['status'], ['status']) }} as status,
     {{ json_extract_scalar('_airbyte_data', ['address'], ['address']) }} as address,
+    {{ json_extract_scalar('_airbyte_data', ['dobDate'], ['dobDate']) }} as dobdate,
     {{ json_extract_scalar('_airbyte_data', ['backSide'], ['backSide']) }} as backside,
     {{ json_extract_scalar('_airbyte_data', ['birthday'], ['birthday']) }} as birthday,
     {{ json_extract_scalar('_airbyte_data', ['createdAt'], ['createdAt']) }} as createdat,

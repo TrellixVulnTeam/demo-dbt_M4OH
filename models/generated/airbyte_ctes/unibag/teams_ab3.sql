@@ -13,7 +13,6 @@ select
         adapter.quote('desc'),
         'logo',
         adapter.quote('name'),
-        adapter.quote('temp'),
         adapter.quote('level'),
         boolean_to_string('active'),
         boolean_to_string('isfull'),

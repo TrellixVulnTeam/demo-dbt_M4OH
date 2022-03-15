@@ -12,6 +12,7 @@ select
         'info',
         adapter.quote('name'),
         adapter.quote('user'),
+        'email',
         'phone',
         adapter.quote('source'),
         array_to_string(adapter.quote('location')),

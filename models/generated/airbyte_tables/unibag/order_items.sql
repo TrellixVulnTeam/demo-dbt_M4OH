@@ -23,6 +23,7 @@ select
     cast({{ adapter.quote('price') }}::json->>'weight' AS numeric) AS weight,
     {{ adapter.quote('sku') }}::json->>'_id' AS sku_id,
     {{ adapter.quote('sku') }}::json->'version' AS sku_version,
+    {{ adapter.quote('sku') }}::json->'unitCode' AS sku_unit_code,
     {{ adapter.quote('user') }} AS seller_id,
     {{ adapter.quote('order') }} AS order_id,
     {{ adapter.quote('product') }} AS product_id,

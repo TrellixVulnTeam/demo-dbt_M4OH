@@ -19,6 +19,7 @@ select
         adapter.quote('number'),
         'status',
         'address',
+        'dobdate',
         'backside',
         'birthday',
         'createdat',

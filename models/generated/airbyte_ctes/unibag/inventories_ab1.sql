@@ -7,6 +7,7 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('unibag', '_airbyte_raw_inventories') }}
 select
+    {{ json_extract_scalar('_airbyte_data', ['id'], ['id']) }} as {{ adapter.quote('id') }},
     {{ json_extract_scalar('_airbyte_data', ['_id'], ['_id']) }} as _id,
     {{ json_extract_scalar('_airbyte_data', ['code'], ['code']) }} as code,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as {{ adapter.quote('name') }},
