@@ -57,6 +57,7 @@ select
     {{ cast_to_boolean('isautoapproved') }} as isautoapproved,
     cast(outboundrequest as {{ dbt_utils.type_string() }}) as outboundrequest,
     cast(trackingcodeurl as {{ dbt_utils.type_string() }}) as trackingcodeurl,
+    cast(trackingcode as {{ dbt_utils.type_string() }}) as trackingcode,
     cast(waitingcancelby as {{ dbt_utils.type_string() }}) as waitingcancelby,
     {{ cast_to_boolean('ischangedelivery') }} as ischangedelivery,
     cast(estimatecashbackat as {{ dbt_utils.type_string() }}) as estimatecashbackat,

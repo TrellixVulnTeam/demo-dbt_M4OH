@@ -17,6 +17,7 @@ select
         'codesku',
         'picture',
         'product',
+        'statistic',
         adapter.quote('version'),
         'createdat',
         array_to_string('properties'),

@@ -57,6 +57,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['isAutoApproved'], ['isAutoApproved']) }} as isautoapproved,
     {{ json_extract_scalar('_airbyte_data', ['outboundRequest'], ['outboundRequest']) }} as outboundrequest,
     {{ json_extract_scalar('_airbyte_data', ['trackingCodeURL'], ['trackingCodeURL']) }} as trackingcodeurl,
+    {{ json_extract_scalar('_airbyte_data', ['trackingCode'], ['trackingcode']) }} as trackingCode,
     {{ json_extract_scalar('_airbyte_data', ['waitingCancelBy'], ['waitingCancelBy']) }} as waitingcancelby,
     {{ json_extract_scalar('_airbyte_data', ['isChangeDelivery'], ['isChangeDelivery']) }} as ischangedelivery,
     {{ json_extract_scalar('_airbyte_data', ['estimateCashbackAt'], ['estimateCashbackAt']) }} as estimatecashbackat,

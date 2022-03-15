@@ -17,6 +17,7 @@ select
     cast(picture as {{ dbt_utils.type_string() }}) as picture,
     cast(product as {{ dbt_utils.type_string() }}) as product,
     cast({{ adapter.quote('version') }} as {{ dbt_utils.type_float() }}) as {{ adapter.quote('version') }},
+    cast(statistic as {{ dbt_utils.type_string() }}) as statistic,
     cast(createdat as {{ dbt_utils.type_string() }}) as createdat,
     properties,
     _airbyte_ab_id,

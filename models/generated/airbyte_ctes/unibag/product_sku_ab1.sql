@@ -35,7 +35,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['isOutOfStock'], ['isOutOfStock']) }} as isoutofstock,
     {{ json_extract_scalar('_airbyte_data', ['pricePercent'], ['pricePercent']) }} as pricepercent,
     {{ json_extract_scalar('_airbyte_data', ['searchString'], ['searchString']) }} as searchstring,
-    {{ json_extract_scalar('_airbyte_data', ['quantity'], ['quantity']) }} as searchstring,
+    {{ json_extract_scalar('_airbyte_data', ['quantity'], ['quantity']) }} as quantity,
     {{ json_extract_scalar('_airbyte_data', ['displayInventory'], ['displayInventory']) }} as displayinventory,
     {{ json_extract_scalar('_airbyte_data', ['showRemainingQuantity'], ['showRemainingQuantity']) }} as showremainingquantity,
     {{ json_extract_scalar('_airbyte_data', ['quantity_aibyte_transform'], ['quantity_aibyte_transform']) }} as quantity_aibyte_transform,

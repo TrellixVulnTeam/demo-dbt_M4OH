@@ -58,6 +58,7 @@ select
         boolean_to_string('isautoapproved'),
         'outboundrequest',
         'trackingcodeurl',
+        'trackingcode',
         'waitingcancelby',
         boolean_to_string('ischangedelivery'),
         'estimatecashbackat',

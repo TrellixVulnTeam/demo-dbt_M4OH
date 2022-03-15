@@ -16,6 +16,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['codeSku'], ['codeSku']) }} as codesku,
     {{ json_extract_scalar('_airbyte_data', ['picture'], ['picture']) }} as picture,
     {{ json_extract_scalar('_airbyte_data', ['product'], ['product']) }} as product,
+    {{ json_extract_scalar('_airbyte_data', ['statistic'], ['statistic']) }} as statistic,
     {{ json_extract_scalar('_airbyte_data', ['version'], ['version']) }} as {{ adapter.quote('version') }},
     {{ json_extract_scalar('_airbyte_data', ['createdAt'], ['createdAt']) }} as createdat,
     {{ json_extract_array('_airbyte_data', ['properties'], ['properties']) }} as properties,
