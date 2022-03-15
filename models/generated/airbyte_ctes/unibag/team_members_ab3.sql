@@ -20,8 +20,9 @@ select
         'statistic',
         'updatedat',
         'isremovedby',
+        'firstorderat',
         'searchstring',
-        'statisticmonth',
+        boolean_to_string('ismemberhomegrown'),
     ]) }} as _airbyte_team_members_hashid,
     tmp.*
 from {{ ref('team_members_ab2') }} tmp

@@ -8,6 +8,7 @@
 -- depends_on: {{ ref('inventories_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
+        adapter.quote('id'),
         '_id',
         'code',
         adapter.quote('name'),
