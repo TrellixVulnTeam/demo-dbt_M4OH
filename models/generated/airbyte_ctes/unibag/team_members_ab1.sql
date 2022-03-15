@@ -19,9 +19,8 @@ select
     {{ json_extract_scalar('_airbyte_data', ['statistic'], ['statistic']) }} as statistic,
     {{ json_extract_scalar('_airbyte_data', ['updatedAt'], ['updatedAt']) }} as updatedat,
     {{ json_extract_scalar('_airbyte_data', ['isRemovedBy'], ['isRemovedBy']) }} as isremovedby,
-    {{ json_extract_scalar('_airbyte_data', ['firstOrderAt'], ['firstOrderAt']) }} as firstorderat,
     {{ json_extract_scalar('_airbyte_data', ['searchString'], ['searchString']) }} as searchstring,
-    {{ json_extract_scalar('_airbyte_data', ['isMemberHomegrown'], ['isMemberHomegrown']) }} as ismemberhomegrown,
+    {{ json_extract_scalar('_airbyte_data', ['statisticMonth'], ['statisticMonth']) }} as statisticmonth,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at

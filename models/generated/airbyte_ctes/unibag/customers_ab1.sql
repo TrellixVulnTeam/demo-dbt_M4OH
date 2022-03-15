@@ -11,7 +11,6 @@ select
     {{ json_extract_scalar('_airbyte_data', ['info'], ['info']) }} as info,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as {{ adapter.quote('name') }},
     {{ json_extract_scalar('_airbyte_data', ['user'], ['user']) }} as {{ adapter.quote('user') }},
-    {{ json_extract_scalar('_airbyte_data', ['email'], ['email']) }} as email,
     {{ json_extract_scalar('_airbyte_data', ['phone'], ['phone']) }} as phone,
     {{ json_extract_scalar('_airbyte_data', ['source'], ['source']) }} as {{ adapter.quote('source') }},
     {{ json_extract_array('_airbyte_data', ['location'], ['location']) }} as {{ adapter.quote('location') }},

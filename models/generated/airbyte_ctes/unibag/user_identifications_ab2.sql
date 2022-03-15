@@ -18,7 +18,6 @@ select
     cast({{ adapter.quote('number') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('number') }},
     cast(status as {{ dbt_utils.type_string() }}) as status,
     cast(address as {{ dbt_utils.type_string() }}) as address,
-    cast(dobdate as {{ dbt_utils.type_string() }}) as dobdate,
     cast(backside as {{ dbt_utils.type_string() }}) as backside,
     cast(birthday as {{ dbt_utils.type_string() }}) as birthday,
     cast(createdat as {{ dbt_utils.type_string() }}) as createdat,

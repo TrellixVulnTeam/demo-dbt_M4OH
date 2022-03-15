@@ -12,6 +12,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['desc'], ['desc']) }} as {{ adapter.quote('desc') }},
     {{ json_extract_scalar('_airbyte_data', ['logo'], ['logo']) }} as logo,
     {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as {{ adapter.quote('name') }},
+    {{ json_extract_scalar('_airbyte_data', ['temp'], ['temp']) }} as {{ adapter.quote('temp') }},
     {{ json_extract_scalar('_airbyte_data', ['level'], ['level']) }} as {{ adapter.quote('level') }},
     {{ json_extract_scalar('_airbyte_data', ['active'], ['active']) }} as active,
     {{ json_extract_scalar('_airbyte_data', ['isFull'], ['isFull']) }} as isfull,

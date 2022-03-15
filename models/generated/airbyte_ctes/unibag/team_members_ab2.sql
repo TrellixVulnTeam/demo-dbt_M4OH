@@ -19,9 +19,8 @@ select
     cast(statistic as {{ dbt_utils.type_string() }}) as statistic,
     cast(updatedat as {{ dbt_utils.type_string() }}) as updatedat,
     cast(isremovedby as {{ dbt_utils.type_string() }}) as isremovedby,
-    cast(firstorderat as {{ dbt_utils.type_string() }}) as firstorderat,
     cast(searchstring as {{ dbt_utils.type_string() }}) as searchstring,
-    {{ cast_to_boolean('ismemberhomegrown') }} as ismemberhomegrown,
+    cast(statisticmonth as {{ dbt_utils.type_string() }}) as statisticmonth,
     _airbyte_ab_id,
     _airbyte_emitted_at,
     {{ current_timestamp() }} as _airbyte_normalized_at
