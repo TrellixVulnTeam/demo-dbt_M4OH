@@ -14,6 +14,8 @@ select
     cast({{ adapter.quote('price') }}::json->>'sell' AS numeric) AS price_sell,
     cast({{ adapter.quote('price') }}::json->>'profit' AS numeric) AS price_profit,
     cast({{ adapter.quote('price') }}::json->>'profitUni' AS numeric) AS price_profit_of_selly,
+    cast({{ adapter.quote('price') }}::json->>'wholesaleBonus' AS numeric) AS price_wholesale_bonus,
+    cast({{ adapter.quote('price') }}::json->>'sellyWholesaleBonus' AS numeric) AS price_selly_wholesale_bonus,
     cast({{ adapter.quote('price') }}::json->>'minimum' AS numeric) AS price_min,
     cast({{ adapter.quote('price') }}::json->>'maximum' AS numeric) AS price_max,
     cast({{ adapter.quote('price') }}::json->>'market' AS numeric) AS price_market,
