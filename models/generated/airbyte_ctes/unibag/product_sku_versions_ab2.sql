@@ -19,6 +19,7 @@ select
     cast({{ adapter.quote('version') }} as {{ dbt_utils.type_float() }}) as {{ adapter.quote('version') }},
     cast(statistic as {{ dbt_utils.type_string() }}) as statistic,
     cast(createdat as {{ dbt_utils.type_string() }}) as createdat,
+    cast(updatedat as {{ dbt_utils.type_string() }}) as updatedat,
     properties,
     _airbyte_ab_id,
     _airbyte_emitted_at,

@@ -20,6 +20,7 @@ select
         'statistic',
         adapter.quote('version'),
         'createdat',
+        'updatedat',
         array_to_string('properties'),
     ]) }} as _airbyte_product_sku_versions_hashid,
     tmp.*

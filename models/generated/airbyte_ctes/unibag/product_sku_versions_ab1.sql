@@ -19,6 +19,7 @@ select
     {{ json_extract_scalar('_airbyte_data', ['statistic'], ['statistic']) }} as statistic,
     {{ json_extract_scalar('_airbyte_data', ['version'], ['version']) }} as {{ adapter.quote('version') }},
     {{ json_extract_scalar('_airbyte_data', ['createdAt'], ['createdAt']) }} as createdat,
+    {{ json_extract_scalar('_airbyte_data', ['updatedAt'], ['updatedAt']) }} as updatedat,
     {{ json_extract_array('_airbyte_data', ['properties'], ['properties']) }} as properties,
     _airbyte_ab_id,
     _airbyte_emitted_at,
