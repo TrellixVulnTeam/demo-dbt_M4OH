@@ -28,6 +28,7 @@ select
     cast({{ adapter.quote('statistic') }}::json->>'saleCancelled' AS numeric) AS stats_sale_cancelled,
     cast({{ adapter.quote('statistic') }}::json->>'saleCashback' AS numeric) AS stats_sale_cashback,
     product AS product_id,
+    version,
     createdat::timestamp AS created_at,
     updatedat::timestamp AS updated_at,
     _airbyte_ab_id,

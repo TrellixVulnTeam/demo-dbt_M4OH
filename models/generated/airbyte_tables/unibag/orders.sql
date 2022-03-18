@@ -29,6 +29,7 @@ select
     cast({{ adapter.quote('price') }}::json->>'maximum' AS numeric) AS price_max,
     cast({{ adapter.quote('price') }}::json->>'total' AS numeric) AS price_total,
     cast({{ adapter.quote('price') }}::json->>'weight' AS numeric) AS weight,
+    {{ adapter.quote('delivery') }}::json->>'_id' AS delivery_id,
     approvedat::timestamp AS approved_at,
     rejectedat::timestamp AS rejected_at,
     pickupat::timestamp AS pickup_at,
