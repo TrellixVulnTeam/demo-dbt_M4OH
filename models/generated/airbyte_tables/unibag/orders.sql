@@ -30,6 +30,7 @@ select
     cast({{ adapter.quote('price') }}::json->>'total' AS numeric) AS price_total,
     cast({{ adapter.quote('price') }}::json->>'weight' AS numeric) AS weight,
     {{ adapter.quote('delivery') }}::json->>'_id' AS delivery_id,
+    cast({{ adapter.quote('delivery') }}::json->>'discountValue' AS numeric) AS delivery_discount_value,
     approvedat::timestamp AS approved_at,
     rejectedat::timestamp AS rejected_at,
     pickupat::timestamp AS pickup_at,
